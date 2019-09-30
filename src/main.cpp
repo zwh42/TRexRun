@@ -12,10 +12,10 @@ int main() {
 
     SDL_Init(SDL_INIT_VIDEO);
 
-    window = SDL_CreateWindow("Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 640, SDL_WINDOW_SHOWN);
 
     window_surface = SDL_GetWindowSurface(window);
-    image_surface = IMG_Load("../res/trex.png");
+    image_surface = IMG_Load("../res/cactus.png");
 
     SDL_BlitSurface(image_surface, NULL, window_surface, NULL);
 
