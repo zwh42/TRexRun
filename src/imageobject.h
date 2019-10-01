@@ -5,21 +5,17 @@
 #include <SDL_image.h>
 #include <string>
 
-class ImageObject{
-    public:
-        ImageObject():
-    
-    private:
-       
-
-};
 
 class TRex{
     public:
-        TRex(std::string image_path, int width, int height, int pos_x, int pos_y);
+        TRex(std::string image_path);
+        SDL_Surface* get_surface() const {
+            return _image;
+        }     
 
     private:
-        SDL_Surface * trex_surface = nullptr;
+        SDL_Surface*  _image = nullptr;
+        //SDL_Texture* _texture = nullptr;
         int _width;
         int _height;
         int _pos_x;

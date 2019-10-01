@@ -25,10 +25,18 @@ Renderer::Renderer(const std::size_t screen_width, const std::size_t screen_heig
     }
 }
 
-    Renderer:: ~Renderer() {
-        SDL_DestroyWindow(_sdl_window);
-        SDL_Quit();    
-    }
+Renderer:: ~Renderer() {
+    SDL_DestroyWindow(_sdl_window);
+    SDL_Quit();    
+}
+
+void Renderer::render(TRex const trex){
+    SDL_Texture* trex_texture = SDL_CreateTextureFromSurface(_sdl_renderer, trex.get_surface());
+    //SDL_RenderCopy(_sdl_renderer, trex_texture, NULL, NULL);
+    SDL_Rect trex_rect = {50, 50, 100, 150};
+    SDL_RenderCopy(_sdl_renderer, trex_texture, NULL, &trex_rect);
+    SDL_RenderPresent(_sdl_renderer);
+}
 
 
 
