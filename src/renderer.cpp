@@ -30,10 +30,11 @@ Renderer:: ~Renderer() {
     SDL_Quit();    
 }
 
-void Renderer::render(TRex const trex){
+void Renderer::render(TRex const trex, int const pos_x, int const pos_y, int const width, int const height){
     SDL_Texture* trex_texture = SDL_CreateTextureFromSurface(_sdl_renderer, trex.get_surface());
     //SDL_RenderCopy(_sdl_renderer, trex_texture, NULL, NULL);
-    SDL_Rect trex_rect = {50, 50, 100, 150};
+    //SDL_Rect trex_rect = {50, 350, 100, 150};
+    SDL_Rect trex_rect = {pos_x, pos_y, width, height};
     SDL_RenderCopy(_sdl_renderer, trex_texture, NULL, &trex_rect);
     SDL_RenderPresent(_sdl_renderer);
 }

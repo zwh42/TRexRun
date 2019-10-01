@@ -10,7 +10,7 @@ class Renderer {
         Renderer(const std::size_t screen_width, const std::size_t screen_height);
         ~Renderer();
 
-        void render(TRex const trex);
+        void render(TRex const trex, int const pos_x, int const pos_y, int const width, int const height);
         //void UpdateWindowTitle(int score, int fps);
 
  private:
