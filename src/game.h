@@ -8,16 +8,17 @@
 
 class Game {
     public:
-        Game();
-        void run(Renderer &renderer, std::size_t target_frame_duration);
+        Game(Renderer* const _renderer, TRex trex);
+        void run();
     
     private:
-        TRex trex;
-        bool is_running;
-        bool is_jump;
+        Renderer* _renderer;
+        TRex _trex;
+        bool _is_running;
+        bool _is_jump;
 
         void handel_event();
 
-}
+};
 
 #endif

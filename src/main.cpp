@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
-#include "renderer.h"
 
+#include "renderer.h"
+#include "game.h"
 #include "imageobject.h"
 
 int main() {
@@ -15,18 +16,16 @@ int main() {
     
     Renderer renderer(SCREEN_WIDTH, SCREEN_HEIGHT);
     
-    //Game game();
+    TRex trex(TREX_IMAGE, &renderer, TREX_WIDHT, TREX_HEIGHT);
+    Game game(&renderer, trex);
+    game.run();
+
+/*    
     TRex trex(TREX_IMAGE, &renderer, TREX_WIDHT, TREX_HEIGHT);
     trex.draw(TREX_POS_X, TREX_POS_Y);
     
     trex.update_position(450, 450);
     trex.draw();
-
-/*    
-    TRex trex(TREX_IMAGE);
-    renderer.render(trex, TREX_POS_X, TREX_POS_Y, TREX_WIDHT, TREX_HEIGHT);
-    std::cout<<"SDL renderer create successfully!" << std::endl;
- */
 
     SDL_Event e;
     bool quit = false;
@@ -41,7 +40,7 @@ int main() {
         }
     }
 
-
+*/
 
     
     return 0;

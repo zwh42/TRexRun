@@ -2,20 +2,24 @@
 #include <iostream>
 #include "SDL.h"
 
-Game::Game(){
-    std::cout<<"game init..." << std::endl;
-}
+Game::Game(Renderer* const renderer, TRex trex): _renderer(renderer), _trex(trex){
 
-void Game::run(Renderer &renderer){
+};
+
+void Game::run(){
     Uint32 title_timestamp = SDL_GetTicks();
     Uint32 frame_start;
     Uint32 frame_end;
     Uint32 frame_duration;
     int frame_count = 0;
     
-    while(running){
-        frame_start = SDL_GetTicks();
+    _trex.update_position(450, 450);
+    _trex.draw();
     
+    _is_running = true;
+    while(_is_running){
+       
+        handel_event();
     }  
     
 }
@@ -25,11 +29,11 @@ void Game::handel_event(){
     
     while (SDL_PollEvent(&e)) {
         if (e.type == SDL_QUIT) {
-            is_running = false;
+            _is_running = false;
         } else if (e.type == SDL_KEYDOWN) {
             switch (e.key.keysym.sym) {
                 case SDLK_SPACE:
-                    is_jump = true;
+                    _is_jump = true;
                     std::cout<< "T-Rex jump!" << std::endl;  
                     break;
             }
