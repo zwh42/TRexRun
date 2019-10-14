@@ -4,6 +4,7 @@
 #include <vector>
 #include "SDL.h"
 #include "trex.h"
+#include "cactus.h"
 
 class Renderer {
     public:
@@ -11,9 +12,11 @@ class Renderer {
         ~Renderer();
 
         //void render(TRex const trex, int const pos_x, int const pos_y, int const width, int const height);
-        
+        SDL_Renderer* get_renderer();
+
         void render(SDL_Surface* const sdl_surface, int const pos_x, int const pos_y, int const width, int const height);
         void render(TRex *trex);
+        void render(TRex *trex, Cactus *cactus);
 
  private:
   SDL_Window *_sdl_window;

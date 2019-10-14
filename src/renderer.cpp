@@ -31,6 +31,10 @@ Renderer:: ~Renderer() {
 }
 
 
+ SDL_Renderer* Renderer::get_renderer(){
+    return _sdl_renderer;
+}
+
 void Renderer::render(SDL_Surface* const sdl_surface, int const pos_x, int const pos_y, int const width, int const height){
     SDL_Texture* sdl_texture = SDL_CreateTextureFromSurface(_sdl_renderer, sdl_surface);
     SDL_Rect sdl_rect = {pos_x, pos_y, width, height};
@@ -48,4 +52,22 @@ void Renderer::render(TRex *trex){
 }
 
 
+void Renderer::render(TRex *trex, Cactus *cactus){
+    SDL_RenderClear(_sdl_renderer);
+
+    SDL_Texture* trex_texture = SDL_CreateTextureFromSurface(_sdl_renderer, trex->get_image());
+    SDL_Rect trex_rect = {trex->get_pos_x(), trex->get_pos_y(), trex->get_width(), trex->get_height()};
+    SDL_RenderCopy(_sdl_renderer, trex_texture, NULL, &trex_rect);
+    
+    SDL_Texture* cactus_texture = SDL_CreateTextureFromSurface(_sdl_renderer, cactus->get_image());
+    SDL_Rect cactus_rect = {cactus->get_pos_x(), cactus->get_pos_y(), cactus->get_width(), cactus->get_height()};
+    
+    //std::cout << "cactus: " << cactus->get_pos_x() << cactus->get_pos_y() << cactus->get_width() << cactus->get_height() << std::endl;
+    
+    SDL_RenderCopy(_sdl_renderer, cactus_texture, NULL, &cactus_rect);
+    
+    
+    SDL_RenderPresent(_sdl_renderer);    
+
+}
     
