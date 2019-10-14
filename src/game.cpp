@@ -11,6 +11,7 @@ void Game::run(){
     Uint32 title_timestamp = SDL_GetTicks();
     Uint32 frame_start;
     Uint32 frame_end;
+    Uint32 target_frame_duration = 1000/60;
     Uint32 frame_duration;
     int frame_count = 0;
     
@@ -21,10 +22,18 @@ void Game::run(){
 
     _is_running = true;
     while(_is_running){
-       
+       frame_start = SDL_GetTicks();
+
         _controller->handel_event(_is_running, &_trex);
         update();
         _renderer->render(&_trex);
+
+        frame_end = SDL_GetTicks();
+        frame_duration = frame_end - frame_start;
+        if (frame_duration < target_frame_duration) {
+            SDL_Delay(target_frame_duration - frame_duration);
+            //std::cout<<"delay: " << target_frame_duration - frame_duration << std::endl;
+        }
     }  
     
 }
