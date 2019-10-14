@@ -31,10 +31,10 @@ class Game {
         int trex_air_time = 1000; //ms
         int trex_step_count = (trex_init_y - trex_max_y) / trex_speed_y;
 
-        int cactus_width_low = 35;
-        int cactus_width_high = 50;
+        int cactus_width_low = 55;
+        int cactus_width_high = 100;
         int cactus_height_low = 55;
-        int cactus_height_high = 85;
+        int cactus_height_high = 130;
         int cactus_speed_x = 6;
 
        

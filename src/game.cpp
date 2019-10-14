@@ -82,7 +82,7 @@ void Game::update(int window_width, int window_height){
         int cactus_height = rand() % (cactus_height_high - cactus_height_low) + cactus_height_low;
 
         _cactus.set_pos_x(window_width);
-        _cactus.set_pos_y(400);
+        _cactus.set_pos_y(500 - cactus_height);
         
         _cactus.set_width(cactus_width);
         _cactus.set_height(cactus_height);
@@ -90,10 +90,20 @@ void Game::update(int window_width, int window_height){
         _cactus.set_pos_x(_cactus.get_pos_x() - cactus_speed_x);
     }
 
+    SDL_Rect _trex_rect = {_trex.get_pos_x(), _trex.get_pos_y(), _trex.get_width(), _trex.get_height()};
+    SDL_Rect _cactus_rect = {_cactus.get_pos_x(), _cactus.get_pos_y(), _cactus.get_width(), _cactus.get_height()};
+
+    if (check_collision(&_trex_rect, &_cactus_rect)){
+        std::cout << "collision!" << std::endl;
+    }
+    
 
 }
 
 bool Game::check_collision(SDL_Rect* a, SDL_Rect* b){
-    return SDL_IntersectRect(a, b, nullptr);
+    //std::cout << "trex x, y, w, h = "<<a->x<<", "<<a->y<<", "<<a->w<<", "<<a->h<<", "<<std::endl;
+    //std::cout << "cactus x, y, w, h = "<<b->x<<", "<<b->y<<", "<<b->w<<", "<<b->h<<", "<<std::endl; 
+    //std::cout<< "intersection result = " << SDL_HasIntersection(a, b) << std::endl;
+    return SDL_HasIntersection(a, b);
 }
 
