@@ -14,6 +14,6 @@ find_package(SDL2_image REQUIRED)
 
 include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS} src)
 
-add_executable(TRexRun src/main.cpp src/renderer.cpp src/imageobject.cpp src/game.cpp)
+add_executable(TRexRun src/main.cpp src/renderer.cpp src/trex.cpp src/controller.cpp src/game.cpp)
 string(STRIP ${SDL2_LIBRARIES} SDL2_LIBRARIES)
 target_link_libraries(TRexRun ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})

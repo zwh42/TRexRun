@@ -1,3 +1,4 @@
+/*
 #ifndef IMAGE_OBJECT_H
 #define IMAGE_OBJECT_H
 
@@ -28,3 +29,5 @@ class TRex{
 
 
 #endif
+
+*/

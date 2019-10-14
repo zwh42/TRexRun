@@ -3,7 +3,7 @@
 
 #include "renderer.h"
 #include "game.h"
-#include "imageobject.h"
+#include "controller.h"
 
 int main() {
     constexpr std::size_t SCREEN_WIDTH{1024};
@@ -15,9 +15,10 @@ int main() {
     std::string TREX_IMAGE{"../res/trex2.png"};
     
     Renderer renderer(SCREEN_WIDTH, SCREEN_HEIGHT);
+    Controller controller;
     
-    TRex trex(TREX_IMAGE, &renderer, TREX_WIDHT, TREX_HEIGHT);
-    Game game(&renderer, trex);
+    TRex trex(TREX_IMAGE, TREX_WIDHT, TREX_HEIGHT, TREX_POS_X, TREX_POS_Y);
+    Game game(&renderer, &controller, trex);
     game.run();
 
 /*    

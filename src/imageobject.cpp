@@ -1,3 +1,4 @@
+/*
 #include <SDL.h>
 #include <SDL_image.h>
 #include <string>
@@ -28,4 +29,5 @@ void TRex::update_position(int const pos_x, int const pos_y){
     _pos_y = pos_y;
 } 
 
+*/
 

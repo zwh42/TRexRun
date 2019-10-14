@@ -30,17 +30,6 @@ Renderer:: ~Renderer() {
     SDL_Quit();    
 }
 
-/*
-void Renderer::render(TRex const trex, int const pos_x, int const pos_y, int const width, int const height){
-    SDL_Texture* trex_texture = SDL_CreateTextureFromSurface(_sdl_renderer, trex.get_surface());
-    //SDL_RenderCopy(_sdl_renderer, trex_texture, NULL, NULL);
-    //SDL_Rect trex_rect = {50, 350, 100, 150};
-    SDL_Rect trex_rect = {pos_x, pos_y, width, height};
-    SDL_RenderCopy(_sdl_renderer, trex_texture, NULL, &trex_rect);
-    SDL_RenderPresent(_sdl_renderer);
-}
-*/
-
 
 void Renderer::render(SDL_Surface* const sdl_surface, int const pos_x, int const pos_y, int const width, int const height){
     SDL_Texture* sdl_texture = SDL_CreateTextureFromSurface(_sdl_renderer, sdl_surface);
@@ -49,6 +38,12 @@ void Renderer::render(SDL_Surface* const sdl_surface, int const pos_x, int const
     SDL_RenderPresent(_sdl_renderer);
 }
 
+void Renderer::render(TRex *trex){
+    SDL_Texture* trex_texture = SDL_CreateTextureFromSurface(_sdl_renderer, trex->get_image());
+    SDL_Rect trex_rect = {trex->get_pos_x(), trex->get_pos_y(), trex->get_width(), trex->get_height()};
+    SDL_RenderCopy(_sdl_renderer, trex_texture, NULL, &trex_rect);
+    SDL_RenderPresent(_sdl_renderer);    
+}
 
 
     

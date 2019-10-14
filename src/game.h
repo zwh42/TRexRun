@@ -4,21 +4,22 @@
 #include <random>
 #include "SDL.h"
 #include "renderer.h"
-#include "imageobject.h"
+#include "trex.h"
+#include "controller.h"
 
 class Game {
     public:
-        Game(Renderer* const _renderer, TRex trex);
+        Game(Renderer* const renderer, Controller* const controller, TRex trex);
         void run();
     
     private:
         Renderer* _renderer;
+        Controller* _controller;
         TRex _trex;
         bool _is_running;
         bool _is_jump;
 
-        void handel_event();
-
+       
 };
 
 #endif
