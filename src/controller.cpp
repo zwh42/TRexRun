@@ -12,6 +12,7 @@ void Controller::handel_event(bool &is_running, TRex *trex) {
                 case SDLK_SPACE:
                     std::cout<< "SPACE key pressed, T-Rex jump!" << std::endl;  
                     trex->set_jump_state(true);
+                    trex->set_fall_state(false);
                     break;
             }
         }

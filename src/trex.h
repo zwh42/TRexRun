@@ -20,6 +20,9 @@ class TRex{
         void set_jump_state(bool state);
         bool get_jump_state() const;
 
+        void set_fall_state(bool state);
+        bool get_fall_state() const;
+
         SDL_Surface* get_image() const; 
 
     private:
@@ -30,6 +33,7 @@ class TRex{
         int _pos_x;
         int _pos_y;
         bool _is_jump;
+        bool _is_fall;
 };
 
 #endif

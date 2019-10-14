@@ -39,6 +39,8 @@ void Renderer::render(SDL_Surface* const sdl_surface, int const pos_x, int const
 }
 
 void Renderer::render(TRex *trex){
+    SDL_RenderClear(_sdl_renderer);
+
     SDL_Texture* trex_texture = SDL_CreateTextureFromSurface(_sdl_renderer, trex->get_image());
     SDL_Rect trex_rect = {trex->get_pos_x(), trex->get_pos_y(), trex->get_width(), trex->get_height()};
     SDL_RenderCopy(_sdl_renderer, trex_texture, NULL, &trex_rect);

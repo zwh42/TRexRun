@@ -38,6 +38,12 @@ bool TRex::get_jump_state() const{
     return _is_jump;
 }
 
+void TRex::set_fall_state(bool state){
+    _is_fall = state;
+}
+bool TRex::get_fall_state() const {
+    return _is_fall;
+}
 
 SDL_Surface* TRex::get_image() const {
     return _image;
