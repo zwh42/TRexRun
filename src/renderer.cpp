@@ -70,4 +70,9 @@ void Renderer::render(TRex *trex, Cactus *cactus){
     SDL_RenderPresent(_sdl_renderer);    
 
 }
+
+void Renderer::update_window_title(int score) {
+  std::string title{"T-Rex Run! Score: " + std::to_string(score)};
+  SDL_SetWindowTitle(_sdl_window, title.c_str());
+}
     

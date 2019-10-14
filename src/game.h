@@ -37,6 +37,8 @@ class Game {
         int cactus_height_high = 130;
         int cactus_speed_x = 6;
 
+        int score = 0;
+
        
 };
 

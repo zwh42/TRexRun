@@ -18,6 +18,8 @@ class Renderer {
         void render(TRex *trex);
         void render(TRex *trex, Cactus *cactus);
 
+        void update_window_title(int score);
+
  private:
   SDL_Window *_sdl_window;
   SDL_Renderer *_sdl_renderer;
